@@ -6,6 +6,8 @@ import "@mantine/core/styles.css";
 import { createTheme, MantineProvider } from "@mantine/core";
 
 const theme = createTheme({
+  fontFamily: "Open Sans, sans-serif",
+  primaryColor: "cyan",
 });
 
 const rootElement = document.getElementById("root");
@@ -13,9 +15,8 @@ if (rootElement) {
   createRoot(rootElement).render(
     <StrictMode>
       <MantineProvider theme={theme}>
-        <App />;
+        <App />
       </MantineProvider>
-      ;
     </StrictMode>,
   );
 }
