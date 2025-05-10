@@ -1,5 +1,5 @@
 import React from "react";
-import { AppShell, ScrollArea, Group, Text, NavLink } from "@mantine/core";
+import { AppShell, ScrollArea, Group, Text } from "@mantine/core";
 import {
   IconNotes,
   IconCalendarStats,
@@ -22,35 +22,34 @@ const data = [
 ];
 
 function AppNavbar() {
-  const { classes, cx } = useStyles();
-  const [ative, setAtive] = React.useState("Tasks"); //State to track link
-
+  const [active, setActive] = React.useState("Tasks"); // Fixed typo in variable name
+  
   const links = data.map((item) => (
     <a
-      className={cx(classes.link, {
-        [classes.linkActive]: item.label === acive,
-      })}
+      key={item.label}
+      className={item.label === active ? "link-active" : "link"}
       href="#"
       onClick={(event) => {
         event.preventDefault();
         setActive(item.label);
       }}
     >
-      <item.icon className={classes.linkIcon} stroke={1.5} />
+      <item.icon stroke={1.5} style={{ marginRight: "10px" }} />
       <span>{item.label}</span>
     </a>
   ));
 
   return (
-    <Navbar height={600} p="md" width={{ base: 200 }}>
-      <Navbar.Section grow component={ScrollArea}>
-        <Group position="apart" mb="md">
-          <Text size="sm" weight={500} color="dimmed">
+    <AppShell.Navbar p="md" width={{ base: 250 }}>
+      <AppShell.Section grow component={ScrollArea}>
+        <Group justify="apart" mb="md">
+          <Text size="sm" fw={500} c="dimmed">
             Navigation
           </Text>
         </Group>
-      </Navbar.Section>
-    </Navbar>
+        <div>{links}</div>
+      </AppShell.Section>
+    </AppShell.Navbar>
   );
 }
 

@@ -1,35 +1,35 @@
-import React from 'react';
-import { AppShell, Text, useMantineTheme } from '@mantine/core';
-import AppNavbar from './components/navbar.jsx';
+import React from "react";
+import { AppShell, Text } from "@mantine/core";
+import AppNavbar from "./components/navbar.jsx";
 
-function App (){
-    const theme = useMantineTheme();
-
-    return (
-        <AppShell
-            padding="md"
-            navbar={<AppNavbar/>}
-            header={
-            <AppShell.Header height={{ base:60, md:70}} p="md">
-                <div style={{displau:'flex', alignItems:'center',height:'100%'}}>
-                    <Text size="lg" weight={500}>
-                        Task Manager
-                    </Text>
-                </div>
-            </AppShell.Header>
-    }
-    styles={(theme) => ({
+function App() {
+  return (
+    <AppShell
+      padding="md"
+      navbar={<AppNavbar />}
+      header={
+        <AppShell.Header height={{ base: 60, md: 70 }} p="md">
+          <div
+            style={{ display: "flex", alignItems: "center", height: "100%" }}
+          >
+            <Text size="lg" fw={500}>
+              Task Manager
+            </Text>
+          </div>
+        </AppShell.Header>
+      }
+      styles={(theme) => ({
         main: {
-            backgroundColor: theme.colorScheme ==='dark' ? theme.colors.dark[8] : theme.colors.gray[0],
+          backgroundColor:
+            theme.colorScheme === "dark"
+              ? theme.colors.dark[8]
+              : theme.colors.gray[0],
         },
-
-    })}
+      })}
     >
-        <Text>Welcome</Text>
-
-        </AppShell>
-    );
-
+      <Text>Welcome to your Task Manager</Text>
+    </AppShell>
+  );
 }
 
-export default App
+export default App;
